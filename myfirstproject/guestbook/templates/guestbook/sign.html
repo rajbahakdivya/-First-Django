@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link href="{% static 'guestbook/sign.css' %}" rel="stylesheet">
+</head>
+<body>
+
+    <form class="form-signin"method="POST" action="{% url 'sign' %}">
+        {%csrf_token %}
+        <table class="sign-in-table">
+            <tr>
+                <td>
+                    <h2 class="text-center">Sign In</h2>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="inputname" class="sr-only">Name:</label>
+                </td>
+                <td>
+                    <!-- <input type="text" id="name" class="form-control" placeholder="Name" required autofocus> -->
+                    {{form.name}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="comment" class="sr-only">Comment:</label>
+                </td>
+                <td>
+                    <!-- <textarea class="form-control" row="5" id="comment" placeholder="Comment" required></textarea> -->
+                    {{ form.comment}}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center">
+                    <button type="submit">Sign In</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>
